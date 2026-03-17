@@ -1,0 +1,38 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.loginForm {
+  text-align: center;
+}
+
+.loginForm h2 {
+  color: var(--text-primary);
+}
+
+.loginForm input {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid var(--border-default);
+  border-radius: 5px;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.loginForm button {
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loginForm button:hover {
+  background-color: var(--color-primary-hover);
+}

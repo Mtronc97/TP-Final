@@ -1,0 +1,57 @@
+/* ── LIGHT MODE ── */
+:root {
+  --bg-primary:         #f5f2eb;
+  --bg-secondary:       #edeae0;
+  --bg-surface:         #ffffff;
+  --bg-elevated:        #f0ede4;
+  --bg-hover:           #e5e1d6;
+
+  /* Acentos Ghibli */
+  --color-primary:      #3a9e96;
+  --color-primary-hover:#2d847d;
+  --color-secondary:    #7a6faa;
+  --color-secondary-hover: #6a5a9a;
+  --color-accent:       #d9707c;
+  --color-success:      #5a9e54;
+  --color-warning:      #c9920a;
+  --color-danger:       #c94f4f;
+  --color-info:         #4a8fb5;
+
+  /* Bordes */
+  --border-subtle:      #dbd7cc;
+  --border-default:     #c4bfb0;
+
+  /* Texto */
+  --text-primary:       #2c2a24;
+  --text-secondary:     #5e5a50;
+  --text-muted:         #9a9588;
+}
+
+/* ── DARK MODE ── */
+[data-theme="dark"] {
+  --bg-primary:         #0d1117;
+  --bg-secondary:       #161b27;
+  --bg-surface:         #1e2433;
+  --bg-elevated:        #252d3d;
+  --bg-hover:           #2f3a50;
+
+  /* Acentos Ghibli */
+  --color-primary:      #8ecfc9;
+  --color-primary-hover:#6db8b1;
+  --color-secondary:    #b8a9d9;
+  --color-secondary-hover: #a092c7;
+  --color-accent:       #f4b8c1;
+  --color-success:      #a8d5a2;
+  --color-warning:      #f9d98c;
+  --color-danger:       #f4a0a0;
+  --color-info:         #c5dff0;
+
+  /* Bordes */
+  --border-subtle:      #2a3347;
+  --border-default:     #3a4a63;
+
+  /* Texto */
+  --text-primary:       #e8edf5;
+  --text-secondary:     #9aa5be;
+  --text-muted:         #5a6478;
+}
