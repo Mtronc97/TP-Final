@@ -38,6 +38,11 @@ export default function ContactScreen({ toggleTheme, theme, name, userPhoto, set
   //Busco el contacto seleccionado en la lista de contactos
   const contact_selected = contacts.find(contact => Number(contact.id) === Number(contact_id))
 
+  const getContactIdByName = (authorName) => {
+    const contact = contacts.find(c => c.name === authorName)
+    return contact ? contact.id : null
+  }
+
   useEffect(() => {
     if (contact_selected) {
       markMessagesAsRead(Number(contact_id))
@@ -151,6 +156,44 @@ export default function ContactScreen({ toggleTheme, theme, name, userPhoto, set
               filteredMessages.map(message => {
                 return (
                   <div key={message.id} className={`message ${message.send_by_me ? 'sent' : 'received'}`}>
+                    {message.authorName && (
+                      <div
+                        className="messageAuthor"
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => {
+                          const targetId = getContactIdByName(message.authorName)
+                          if (targetId) navigate(`/contact/${targetId}`)
+                        }}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            const targetId = getContactIdByName(message.authorName)
+                            if (targetId) navigate(`/contact/${targetId}`)
+                          }
+                        }}
+                      >
+                        {(() => {
+                          const contact = contacts.find(c => c.name === message.authorName)
+                          const avatarSrc = message.authorAvatar || contact?.profile_picture
+                          return avatarSrc ? (
+                            <img src={avatarSrc} alt={message.authorName} className="authorAvatar" />
+                          ) : (
+                            <div
+                              className="authorInitials"
+                              style={{ backgroundColor: getColorFromName(message.authorName) }}
+                            >
+                              {getInitials(message.authorName)}
+                            </div>
+                          )
+                        })()}
+                        <span
+                          className="authorName"
+                          style={{ color: getColorFromName(message.authorName) }}
+                        >
+                          {message.authorName}
+                        </span>
+                      </div>
+                    )}
                     <p>{message.text}</p>
                     <div className="messageFooter">
                       <span className="messageTime">{new Date(message.created_at).toLocaleTimeString()}</span>
